@@ -1,20 +1,16 @@
 <?php 
 
 class Asignatura {
-
     private $nota1;
     private $nota2;
     private $nota3;
+    const NUMERO=3;
 
-
-    function __construct ($nota1, $nota2, $nota3) 
-    {
+    function __construct ($nota1, $nota2, $nota3)    {
        $this -> nota1 =$nota1;
        $this -> nota2 =$nota2;
        $this -> nota3 =$nota3;
-
     }
-
 
     public function leerNota1(){
      $vn= $this -> nota1;
@@ -45,40 +41,49 @@ class Asignatura {
     }
 
 
-    public function promedio(){
+    public function promedio() {
       $a=$this -> nota1;
       $b=$this -> nota2;
       $c=$this -> nota3;
-      const num=3;
-      $p=($a+$b+$c)/num;
+      $p=(($a+$b+$c)/NUMERO);
       return $p;
+    }
+}
 
+class Estudiante {
+
+    private $nombre;
+    private $curso;
+    private $asignaturas = array();
+
+   function __construct ($nombre, $curso, $asignaturas)    {
+       $this -> nombre =$nombre;
+       $this -> curso =$curso;
+       $this -> asignaturas =$asignaturas;
+    }
+
+    public function escribirNombre($a) {
+      $this -> nombre =$a;
+    }
+
+    public function leerNombre(){
+       $nom = $this -> nombre;
+       return $nom;
     }
 
 
-}
+    public function escribirCurso($a) {
+      $this -> curso =$a;
+    }
 
+    public function leerCurso(){
+       $cur = $this -> curso;
+      return $cur;
+    }
 
-class Estudiante() {
-
-private $nombre;
-private $curso;
-private $asignaturas = array();
-
-
-
-
-public function escribirNombre($a) {
-  $this -> nombre =$a;
-}
-
-
-
-public function leerNombre(){
- $nom = $this -> nombre;
-return $nom;
-}
-
+    public function escribirAsignatura($a,$v){
+      $this-> asignaturas =array_push($a, $v);
+    }
 
 }
 
