@@ -1,5 +1,4 @@
 <?php 
-
 class Asignatura {
     private $nota1;
     private $nota2;
@@ -21,7 +20,6 @@ class Asignatura {
       $this -> nota1=$valorn;
     }
 
-
     public function leerNota2(){
      $vn= $this -> nota2;
      return $vn;
@@ -33,13 +31,12 @@ class Asignatura {
 
     public function leerNota3(){
        $vn = $this -> nota3;
-     return $vn;
+       return $vn;
     }
 
     public function escribirNota3($valorn){
       $this -> nota3=$valorn;
     }
-
 
     public function promedio() {
       $a=$this -> nota1;
@@ -49,7 +46,6 @@ class Asignatura {
       return $p;
     }
 }
-
 class Estudiante {
 
     private $nombre;
@@ -71,7 +67,6 @@ class Estudiante {
        return $nom;
     }
 
-
     public function escribirCurso($a) {
       $this -> curso =$a;
     }
@@ -81,12 +76,43 @@ class Estudiante {
       return $cur;
     }
 
+    public function leerAsignaturas(){
+       $asig = $this -> asignaturas;
+      return $asig;
+    }
+
     public function escribirAsignatura($a,$v){
       $this-> asignaturas =array_push($a, $v);
     }
 
 }
 
+class Profesor {
+  private $nombre;
+  private $estudiantes= array();
+
+ function __construct ($nombre, $estudiantes)    {
+       $this -> nombre =$nombre;
+       $this -> estudiantes=$estudiantes;
+    }
+
+   public function leerNombres(){
+       $nom = $this -> nombre;
+       return $nom;
+    }
+
+    public function escribirNombre($a) {
+      $this -> nombre =$a;
+    }
+
+  public function leerEstudiantes(){
+       $estu = $this -> estudiantes;
+       return $estu;
+    }
+  public function escribirEstudiantes($arr,$v){
+    $this-> estudiantes =array_push($arr, $v);
+  }
+}
 
 
 ?>
